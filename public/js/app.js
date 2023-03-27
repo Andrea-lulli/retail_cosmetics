@@ -2071,7 +2071,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("Sei un amministratore?")]), _vm._v(" "), _c("a", {
     staticClass: "nav-link text-white mx-3",
     attrs: {
-      href: "http://127.0.0.1:8000/login"
+      href: "http://127.0.0.1:8000/admin"
     }
   }, [_vm._v("Accedi")])])])])])])]);
 }];
@@ -2189,7 +2189,7 @@ var render = function render() {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("Indirizzo: " + _vm._s(elem.brand))])])]);
+    }, [_vm._v("Marca: " + _vm._s(elem.brand))])])]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, [_c("Pagination", {
@@ -6607,7 +6607,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* .navbar-nav li:hover {\n  color: #00CCBC;\n} */\n.navbar[data-v-1f42fb90] {\n  padding: 0;\n  border-bottom: 1px solid #00CCBC;\n}\n.nav-right[data-v-1f42fb90] {\n  margin-right: 30px;\n}\n.img-logo[data-v-1f42fb90] {\n  width: 50px;\n}\nli[data-v-1f42fb90] {\n  margin: 5px;\n  border-bottom: 1px solid transparent;\n}\nli[data-v-1f42fb90]:hover {\n  border-bottom-color: #00CCBC;\n}", ""]);
+exports.push([module.i, ".navbar[data-v-1f42fb90] {\n  padding: 0;\n  border-bottom: 1px solid #00CCBC;\n}\n.nav-right[data-v-1f42fb90] {\n  margin-right: 30px;\n}\n.img-logo[data-v-1f42fb90] {\n  width: 50px;\n}\nli[data-v-1f42fb90] {\n  margin: 5px;\n  border-bottom: 1px solid transparent;\n}\nli[data-v-1f42fb90]:hover {\n  border-bottom-color: #00CCBC;\n}", ""]);
 
 // exports
 

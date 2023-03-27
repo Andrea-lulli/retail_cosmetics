@@ -1,57 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('admin.perfumes.create') }}">Crea nuovo perfume</a>
-    <table class="">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">
-                    Title
-                </th>
-                <th scope="col">Body</th>
-                <th scope="col">Category</th>
-                <th scope="col">Tags</th>
-                <th scope="col">actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($perfumes as $elem)
-                <tr>
-                    <td>{{ $elem->id }}</td>
-                    <td>
-                        <a href="{{ route('admin.perfumes.show', $elem->id) }}">
-                            {{ $elem->name }}
-                        </a>
-                    </td>
-                    <td>{{ $elem->brand }}</td>
-                    <td>
+<h1 class="text-center">Lista Prodotti</h1>
+<table class="table table-striped  ">
+    <thead class="">
+        <tr>
+            <th class="w-25">Nome</th>
+            <th class="w-15">Prezzo</th>
+            <th class="w-30">Immagine</th>
+            <th class="w-10">Elimina</th>
+            <th class="w-10">Modifica</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($perfumes as $elem)
+        <tr>
+            <td><a href="{{ route('admin.perfumes.show', $elem->id) }}">{{ $elem->name }}</a></td>
+            <td>{{ $elem->price}} €</td>
+            <td>
+                <img class="w-25" src="https://loremflickr.com/320/240?random={{$elem->image}}" alt="">
+            </td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal-{{ $elem->id }}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
 
-                            {{ $elem->category }}
+                <!-- Delete Modal -->
+                <div class="modal fade" id="deleteModal-{{ $elem->id }}" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel-{{ $elem->id }}"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="deleteModalLabel-{{ $elem->id }}">Elimina prodotto</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Sei sicuro di voler eliminare il prodotto? "{{ $elem->name }}"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                <form action="{{ route('admin.perfumes.destroy', $elem->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Elimina</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a href="{{ route('admin.perfumes.edit', $elem->id) }}" class="btn btn-primary">Modifica</a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 
-
-                    </td>
-
-                    <td class="justify-content-center">
-                        <a class="" href="{{ route('admin.perfumes.edit', $elem->id) }}">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
-
-                        <form action="{{ route('admin.perfumes.destroy', $elem->id) }}" method="POST">
-
-                            @csrf
-                            @method('DELETE')
-                            <Button type="submit" class="btn btn-danger">
-                                <i class="fa-solid fa-trash"></i>
-                            </Button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <div class="d-flex justify-content-center">
-        {{ $perfumes->links() }}
-    </div>
+<div class="d-flex justify-content-center">
+    {{ $perfumes->links() }}
+</div>
 @endsection

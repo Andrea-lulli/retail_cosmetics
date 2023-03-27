@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
-
 use App\Models\Perfume;
 use Illuminate\Http\Request;
 
@@ -17,7 +15,7 @@ class PerfumeController extends Controller
     public function index()
     {
         $data = [
-            'perfumes' => Perfume::paginate(10)
+            'perfumes' => Perfume::paginate(6)
         ];
 
         return view('admin.perfumes.index', $data);
@@ -48,7 +46,6 @@ class PerfumeController extends Controller
         $newperfume->save();
 
         return redirect()->route('admin.perfumes.index');
-
     }
 
     /**
@@ -57,7 +54,7 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
         $singolo_perfume = Perfume::findOrFail($id);
 
@@ -70,7 +67,7 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         $perfume = Perfume::findOrFail($id);
 
@@ -100,7 +97,7 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
         $singolo_perfume = Perfume::findOrFail($id);
 

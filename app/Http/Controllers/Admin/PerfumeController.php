@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Perfume;
 use Illuminate\Http\Request;
@@ -14,7 +16,11 @@ class PerfumeController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'perfumes' => Perfume::paginate(10)
+        ];
+
+        return view('admin.perfumes.index', $data);
     }
 
     /**
@@ -24,7 +30,7 @@ class PerfumeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.perfumes.create');
     }
 
     /**
@@ -35,7 +41,14 @@ class PerfumeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newperfume = new Perfume();
+        $newperfume->fill($data);
+        $newperfume->save();
+
+        return redirect()->route('admin.perfumes.index');
+
     }
 
     /**
@@ -44,9 +57,11 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function show(Perfume $perfume)
+    public function show( $id)
     {
-        //
+        $singolo_perfume = Perfume::findOrFail($id);
+
+        return view('admin.perfumes.show', compact('singolo_perfume'));
     }
 
     /**
@@ -55,9 +70,11 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function edit(Perfume $perfume)
+    public function edit( $id)
     {
-        //
+        $perfume = Perfume::findOrFail($id);
+
+        return view('admin.perfumes.edit', compact('perfume'));
     }
 
     /**
@@ -67,9 +84,14 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Perfume $perfume)
+    public function update(Request $request,  $id)
     {
-        //
+        $data = $request->all();
+        $singolo_perfume = Perfume::findOrFail($id);
+
+        $singolo_perfume->update($data);
+
+        return redirect()->route('admin.perfumes.index', $singolo_perfume->id);
     }
 
     /**
@@ -78,8 +100,14 @@ class PerfumeController extends Controller
      * @param  \App\Models\Perfume  $perfume
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Perfume $perfume)
+    public function destroy( $id)
     {
-        //
+        $singolo_perfume = Perfume::findOrFail($id);
+
+
+
+        $singolo_perfume->delete();
+
+        return redirect()->route('admin.perfumes.index');
     }
 }

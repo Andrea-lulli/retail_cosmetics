@@ -2171,8 +2171,10 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container text-center"
-  }, [_c("div", [_c("div", {
+    staticClass: "container my-5"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("div", {
     staticClass: "card-deck d-flex flex-wrap justify-content-center"
   }, _vm._l(_vm.perfumes, function (elem) {
     return _c("div", {
@@ -2188,14 +2190,16 @@ var render = function render() {
     }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
     }, [_vm._v("Indirizzo: " + _vm._s(elem.brand))])])]);
-  }), 0)]), _vm._v(" "), _c("Pagination", {
+  }), 0)]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("Pagination", {
     attrs: {
       pagination: _vm.pagination
     },
     on: {
       "on-page-change": _vm.getPerfumes
     }
-  })], 1);
+  })], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

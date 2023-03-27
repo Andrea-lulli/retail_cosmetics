@@ -5,6 +5,6 @@
     <p>Marca: {{ $singolo_perfume->brand }}</p>
     <p>Prezzo: {{ $singolo_perfume->price }}€</p>
     <p>Categoria: {{ $singolo_perfume->category }}€</p>
-    <img src="https://loremflickr.com/320/240?random={{$singolo_perfume->image}}" alt="">
+    <img class="w-25" src="{{$singolo_perfume->image}}" alt="">
 </div>
 @endsection

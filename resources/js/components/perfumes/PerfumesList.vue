@@ -3,7 +3,7 @@
         <div class=" d-flex justify-content-center">
 
             <div class="card-deck d-flex flex-wrap justify-content-center">
-                <div v-for="elem in perfumes" :key="elem.id" class="card" :style="{backgroundImage: `url(https://loremflickr.com/320/240?random=${elem.image})`}">
+                <div v-for="elem in perfumes" :key="elem.id" class="card" :style="{backgroundImage: `url(${elem.image})`}">
                     <div class="card-overlay">
                         <h5 class="card-title">{{ elem.name }}</h5>
                         <p class="card-text">Marca: {{ elem.brand }}</p>
@@ -111,7 +111,7 @@
     .card-overlay {
         margin-top: 25%;
         padding: 10px;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.8);
         text-align: center;
         color: black;
     }

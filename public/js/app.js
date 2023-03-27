@@ -2181,7 +2181,7 @@ var render = function render() {
       key: elem.id,
       staticClass: "card",
       style: {
-        backgroundImage: "url(https://loremflickr.com/320/240?random=".concat(elem.image, ")")
+        backgroundImage: "url(".concat(elem.image, ")")
       }
     }, [_c("div", {
       staticClass: "card-overlay"
@@ -6626,7 +6626,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".inp-sty[data-v-7409cfb2] {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type[data-v-7409cfb2] {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants[data-v-7409cfb2] {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card[data-v-7409cfb2] {\n  flex-basis: 30%;\n  justify-content: space-between;\n  margin: 10px 10px;\n}\n.card-deck[data-v-7409cfb2] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 60%;\n}\n.card-titl .card-tex[data-v-7409cfb2] {\n  color: white;\n}\n.card[data-v-7409cfb2] {\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n}\n.card-overlay[data-v-7409cfb2] {\n  margin-top: 25%;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  color: black;\n}\n.card-title[data-v-7409cfb2] {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text[data-v-7409cfb2] {\n  font-size: 1rem;\n  margin: 0;\n}", ""]);
+exports.push([module.i, ".inp-sty[data-v-7409cfb2] {\n  padding: 10px;\n  border-radius: 20px;\n  width: 30%;\n  margin: 30px 0px;\n  border: 0;\n}\n.list-type[data-v-7409cfb2] {\n  background-color: #00ccbc;\n  border-radius: 15px;\n}\n.list-restaurants[data-v-7409cfb2] {\n  list-style-type: none;\n  text-decoration: none;\n  color: gray;\n}\n.card[data-v-7409cfb2] {\n  flex-basis: 30%;\n  justify-content: space-between;\n  margin: 10px 10px;\n}\n.card-deck[data-v-7409cfb2] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 60%;\n}\n.card-titl .card-tex[data-v-7409cfb2] {\n  color: white;\n}\n.card[data-v-7409cfb2] {\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  aspect-ratio: 1/1;\n}\n.card-overlay[data-v-7409cfb2] {\n  margin-top: 25%;\n  padding: 10px;\n  background-color: rgba(255, 255, 255, 0.8);\n  text-align: center;\n  color: black;\n}\n.card-title[data-v-7409cfb2] {\n  font-size: 1.2rem;\n  margin: 0;\n}\n.card-text[data-v-7409cfb2] {\n  font-size: 1rem;\n  margin: 0;\n}", ""]);
 
 // exports
 

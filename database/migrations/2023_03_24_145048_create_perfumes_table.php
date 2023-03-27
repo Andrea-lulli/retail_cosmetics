@@ -19,7 +19,7 @@ class CreatePerfumesTable extends Migration
             $table->string('brand');
             $table->string('category');
             $table->string('price');
-            $table->string('image');
+            $table->text('image');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@
             <td><a href="{{ route('admin.perfumes.show', $elem->id) }}">{{ $elem->name }}</a></td>
             <td>{{ $elem->price}} €</td>
             <td>
-                <img class="w-25" src="https://loremflickr.com/320/240?random={{$elem->image}}" alt="">
+                <img class="w-25" src="{{$elem->image}}" alt="">
             </td>
             <td>
                 <!-- Button trigger modal -->

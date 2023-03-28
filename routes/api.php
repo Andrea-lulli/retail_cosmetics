@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('Api')->prefix('/perfumes')->group(function () {
 
     Route::get('/', 'PerfumeController@index');
+    Route::get('/all', 'PerfumeController@all');
 
 
 });

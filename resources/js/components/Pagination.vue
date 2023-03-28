@@ -7,7 +7,7 @@
             </li>
 
 
-            <li @click="$emit('on-page-change', n)" v-for="n in pagination.lastPage" :key="n" class="page-item"
+            <li @click="$emit('on-page-change', n),classColor(n)" v-for="n in pagination.lastPage" :key="n" class="page-item"
                 role="button">
                 <span role="button" class="page-link">{{ n }}</span>
             </li>
@@ -24,6 +24,19 @@
 <script>
     export default {
         name: 'Pagination',
-        props: ['pagination']
-    }
+        props: ['pagination'],
+}
+
 </script>
+
+<style scoped lang="scss">
+
+span{
+    color: black;
+}
+
+span:hover{
+color: black;
+background-color: rgba($color: #837f7f, $alpha: 0.6);
+}
+</style>

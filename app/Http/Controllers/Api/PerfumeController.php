@@ -17,7 +17,16 @@ class PerfumeController extends Controller
     {
         $perfumes = Perfume::OrderBy('id', 'DESC')->paginate(9);
 
+
         return response()->json($perfumes);
+    }
+
+    public function all()
+    {
+
+        $perfumesTotal = Perfume::all();
+
+        return response()->json($perfumesTotal);
     }
 
     /**

@@ -15,7 +15,7 @@ class PerfumeController extends Controller
      */
     public function index()
     {
-        $perfumes = Perfume::OrderBy('id', 'DESC')->paginate(9);
+        $perfumes = Perfume::OrderBy('id', 'DESC')->paginate(6);
 
 
         return response()->json($perfumes);

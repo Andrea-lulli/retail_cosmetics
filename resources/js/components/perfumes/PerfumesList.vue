@@ -130,7 +130,7 @@
     .card-deck {
         display: flex;
         flex-wrap: wrap;
-        width: 60%;
+        width: 65%;
     }
 
     .card-titl .card-tex {
@@ -147,7 +147,7 @@
     .card-overlay {
         margin-top: 25%;
         padding: 10px;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.9);
         text-align: center;
         color: black;
     }

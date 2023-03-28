@@ -197,7 +197,7 @@ class PerfumeSeeder extends Seeder
                     "brand" => "Chloé",
                     "category" => "Women's Fragrances",
                     "price" => 105.00,
-                    "image" => "https://www.chloe.com/on/demandware.static/-/Sites-chloe-master-catalog/default/dwb111e50b/images/hi-res/CHLOE_EAU_DE_PARFUM_50ML_1.jpg",
+                    "image" => "https://cdn.parfumdreams.de/Img/Art/7/DIOR-Jadore-Eau-de-Parfum-Spray-16370x2_93.jpg",
                 ],
                 [
                     "name" => "Versace Eros",
@@ -225,7 +225,7 @@ class PerfumeSeeder extends Seeder
                     "brand" => "Creed",
                     "category" => "Men's Fragrances",
                     "price" => 435.00,
-                    "image" => "https://creedboutique.com/media/catalog/product/cache/c687aa7517cf01e65c009f6943c2b1e9/a/v/aventus.jpg"
+                    "image" => "https://www.essenzial.it/wp-content/uploads/2019/10/Profumo-ispirato-a-DOLCE-GABBANA-POUR-HOMME-DG-uomo-N%C2%B07.png"
                 ],
                 [
                     "name" => "Jo Malone Wood Sage & Sea Salt",
@@ -239,7 +239,7 @@ class PerfumeSeeder extends Seeder
                     "brand" => "Marc Jacobs",
                     "category" => "Women's Fragrances",
                     "price" => 96.00,
-                    "image" => "https://www.marcjacobsfragrances.com/dw/image/v2/BDMJ_PRD/on/demandware.static/-/Sites-mjf-master-catalog/default/dw79b7a8b4/images/large/SP21_Daisy_My_Marc_Icon_Eau_de_Parfum_1.7oz_Bottle_USA_16280801636350.png?sw=620&sh=620&sm=fit"
+                    "image" => "https://banner2.cleanpng.com/20180501/ijq/kisspng-perfume-avon-products-eau-de-toilette-absolute-sho-5ae903f35e1b89.9024028315252203393855.jpg"
                 ],
                 [
                     "name" => "Gucci Bloom",
@@ -253,7 +253,7 @@ class PerfumeSeeder extends Seeder
                     "brand" => "Creed",
                     "category" => "Men's Fragrances",
                     "price" => 435.00,
-                    "image" => "https://www.creedboutique.com/on/demandware.static/-/Sites-creed-master-catalog/default/dw5c7ff2f5/images/Aventus/creed-aventus-eau-de-parfum-100ml.jpg"
+                    "image" => "https://banner2.cleanpng.com/20180627/wtt/kisspng-perfume-miss-dior-5b341e2d055ec6.660685561530142253022.jpg",
                 ],
                 [
                     "name" => "Dior Sauvage",
@@ -267,14 +267,14 @@ class PerfumeSeeder extends Seeder
                     "brand" => "Chanel",
                     "category" => "Men's Fragrances",
                     "price" => 138.00,
-                    "image" => "https://www.chanel.com/images//t_fashion/q_auto,f_jpg,fl_lossy,dpr_1.0/shopping-center/bleu-de-chanel/bleu-de-chanel-parfum-127057-8806594448894.jpg"
+                    "image" => "https://cdn.parfumdreams.de/Img/Art/7/DIOR-Jadore-Eau-de-Parfum-Spray-16370x2_93.jpg"
                 ],
                 [
                     "name" => "Jo Malone London Wood Sage & Sea Salt",
                     "brand" => "Jo Malone",
                     "category" => "Women's Fragrances",
                     "price" => 142.00,
-                    "image" => "https://www.jomalone.com/products/2827/wood-sage-sea-salt-cologne/_/R-130007"
+                    "image" => "https://banner2.cleanpng.com/20180501/ijq/kisspng-perfume-avon-products-eau-de-toilette-absolute-sho-5ae903f35e1b89.9024028315252203393855.jpg"
                 ],
                 [
                     "name" => "Byredo Gypsy Water",
@@ -302,7 +302,7 @@ class PerfumeSeeder extends Seeder
                     "brand" => "Paco Rabanne",
                     "category" => "Men's Fragrances",
                     "price" => 92.00,
-                    "image" => "https://www.pacorabanne.com/on/demandware.static/-/Sites-pacorabanne-master/default/dw2ebe94aa/HD_0000000_00.jpg?sw=600&sh=600&sm=fit&sfrm=png",
+                    "image" => "https://banner2.cleanpng.com/20180627/wtt/kisspng-perfume-miss-dior-5b341e2d055ec6.660685561530142253022.jpg",
                 ],
                 [
                     "name" => "Dior Sauvage",

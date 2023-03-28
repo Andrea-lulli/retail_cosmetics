@@ -1949,18 +1949,22 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       perfumes: [],
-      pagination: {}
+      pagination: {},
+      search: '',
+      perfumesTotal: []
     };
   },
   mounted: function mounted() {
     this.getPerfumes();
+    this.getAllPerfumes();
+    this.prova();
   },
   methods: {
+    // chiamata axios con paginate
     getPerfumes: function getPerfumes() {
       var _this = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get("http://localhost:8000/api/perfumes?page=" + page).then(function (res) {
-        console.log(res.data);
         var data = res.data.data;
         var current_page = res.data.current_page;
         var last_page = res.data.last_page;
@@ -1971,6 +1975,24 @@ __webpack_require__.r(__webpack_exports__);
         };
       })["catch"](function (err) {
         console.log(err);
+      });
+    },
+    // chiamata axios con tutti i profumi
+    getAllPerfumes: function getAllPerfumes() {
+      var _this2 = this;
+      axios.get("http://localhost:8000/api/perfumes/all").then(function (res) {
+        var data = res.data;
+        _this2.perfumesTotal = data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  computed: {
+    filteredPerfumes: function filteredPerfumes() {
+      var _this3 = this;
+      return this.perfumesTotal.filter(function (perfume) {
+        return perfume.name.toLowerCase().includes(_this3.search.toLowerCase());
       });
     }
   }
@@ -2171,12 +2193,51 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container my-5"
+    staticClass: "container my-3"
   }, [_c("div", {
     staticClass: "d-flex justify-content-center"
-  }, [_c("div", {
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.search,
+      expression: "search"
+    }],
+    staticClass: "inp-sty text-center border border-black",
+    attrs: {
+      type: "text",
+      placeholder: "Search perfume name"
+    },
+    domProps: {
+      value: _vm.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.search = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_vm.search == "" ? _c("div", {
     staticClass: "card-deck d-flex flex-wrap justify-content-center"
   }, _vm._l(_vm.perfumes, function (elem) {
+    return _c("div", {
+      key: elem.id,
+      staticClass: "card",
+      style: {
+        backgroundImage: "url(".concat(elem.image, ")")
+      }
+    }, [_c("div", {
+      staticClass: "card-overlay"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(elem.name))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v("Marca: " + _vm._s(elem.brand))])])]);
+  }), 0) : _c("div", {
+    staticClass: "card-deck d-flex flex-wrap justify-content-center"
+  }, _vm._l(_vm.filteredPerfumes, function (elem) {
     return _c("div", {
       key: elem.id,
       staticClass: "card",

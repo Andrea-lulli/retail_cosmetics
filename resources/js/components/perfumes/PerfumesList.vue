@@ -1,9 +1,15 @@
 <template>
-    <div class="container my-5">
-        <div class=" d-flex justify-content-center">
+    <div class="container my-3">
+        <div class="d-flex justify-content-center">
+            <input class="inp-sty text-center border border-black" type="text" v-model="search"
+                placeholder="Search perfume name" />
+        </div>
+        <div class="d-flex justify-content-center">
 
-            <div class="card-deck d-flex flex-wrap justify-content-center">
-                <div v-for="elem in perfumes" :key="elem.id" class="card" :style="{backgroundImage: `url(${elem.image})`}">
+            <!-- se non viene usata la ricerca -->
+            <div class="card-deck d-flex flex-wrap justify-content-center" v-if="search == ''">
+                <div v-for="elem in perfumes" :key="elem.id" class="card"
+                    :style="{backgroundImage: `url(${elem.image})`}">
                     <div class="card-overlay">
                         <h5 class="card-title">{{ elem.name }}</h5>
                         <p class="card-text">Marca: {{ elem.brand }}</p>
@@ -11,16 +17,21 @@
                 </div>
             </div>
 
+            <!-- se viene usata la ricerca -->
+            <div class="card-deck d-flex flex-wrap justify-content-center" v-else>
+                <div v-for="elem in filteredPerfumes" :key="elem.id" class="card"
+                    :style="{backgroundImage: `url(${elem.image})`}">
+                    <div class="card-overlay">
+                        <h5 class="card-title">{{ elem.name }}</h5>
+                        <p class="card-text">Marca: {{ elem.brand }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="d-flex justify-content-center">
             <Pagination @on-page-change="getPerfumes" :pagination="pagination" />
         </div>
-
-
-
     </div>
-
-
 </template>
 
 <script>
@@ -35,18 +46,27 @@
             return {
                 perfumes: [],
                 pagination: {},
+                search: '',
+                perfumesTotal: [],
             };
         },
         mounted() {
             this.getPerfumes();
+
+            this.getAllPerfumes();
+
+            this.prova()
+
+
+
         },
         methods: {
+
+            // chiamata axios con paginate
             getPerfumes(page = 1) {
                 axios
                     .get("http://localhost:8000/api/perfumes?page=" + page)
                     .then((res) => {
-                        console.log(res.data);
-
                         const data = res.data.data;
                         const current_page = res.data.current_page;
                         const last_page = res.data.last_page;
@@ -61,7 +81,27 @@
                         console.log(err);
                     });
             },
+
+            // chiamata axios con tutti i profumi
+            getAllPerfumes() {
+                axios
+                    .get("http://localhost:8000/api/perfumes/all")
+                    .then((res) => {
+                        const data = res.data;
+                        this.perfumesTotal = data;
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            },
         },
+        computed: {
+            filteredPerfumes() {
+                return this.perfumesTotal.filter(perfume => {
+                    return perfume.name.toLowerCase().includes(this.search.toLowerCase())
+                })
+            }
+        }
     };
 </script>
 

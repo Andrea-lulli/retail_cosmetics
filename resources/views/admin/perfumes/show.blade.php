@@ -15,7 +15,6 @@
                                 <p>Prezzo: {{ $singolo_perfume->price }}€</p>
                                 <hr>
                                 <p>Categoria: {{ $singolo_perfume->category }}</p>
-                                <p>Prezzo: 5.00€</p>
                                 <hr>
                                 <img class="w-25" src="{{$singolo_perfume->image}}" alt="">
                             </div>

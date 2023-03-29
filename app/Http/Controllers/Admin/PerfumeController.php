@@ -49,7 +49,6 @@ class PerfumeController extends Controller
             $data['image'] = $image;
         }
 
-
         $newperfume->fill($data);
         $newperfume->save();
 
@@ -112,9 +111,6 @@ class PerfumeController extends Controller
         if ($singolo_perfume->image) {
             Storage::delete($singolo_perfume->image);
         };
-
-
-
 
         $singolo_perfume->delete();
 

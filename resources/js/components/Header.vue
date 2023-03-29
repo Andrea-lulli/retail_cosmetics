@@ -4,7 +4,7 @@
             <nav class="navbar navbar-expand-md bg-body-tertiary navbar-light" data-bs-theme="dark">
                 <div class="container-fluid bg-dark d-flex justify-content-between">
                     <div class="navbar-brand">
-                        <img class="img-logo" src="../../../public/images/logo.png" alt="" />
+                        <img class="img-logo" src="../../images/logo.png" alt="" />
                     </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

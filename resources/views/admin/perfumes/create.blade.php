@@ -23,7 +23,7 @@
         <label for="name" class="col-md-4 col-form-label text-md-right">Marca
             <span class="text-success">*</span></label>
         <div class="col-md-6">
-            <input type="text" class="form-control" name="brand" placeholder="Inserisci il nome della marca">
+            <input type="text" class="form-control" name="brand" placeholder="Inserisci la marca del prodotto">
         </div>
     </div>
 
@@ -41,8 +41,8 @@
         <label for="price" class="col-md-4 col-form-label text-md-right">Prezzo
             <span class="text-success">*</span></label>
         <div class="col-md-6">
-            <input type="number" min="0.1" step=".01" class="form-control" name="price" autocomplete="price"
-                placeholder="10.00">
+            <input type="number" min="1.00" step="1.00" class="form-control" name="price" autocomplete="price"
+                placeholder="0.00">
         </div>
     </div>
 

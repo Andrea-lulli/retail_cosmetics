@@ -17,6 +17,7 @@
                                 <p>Categoria: {{ $singolo_perfume->category }}</p>
                                 <hr>
                                 <img class="w-25" src="{{$singolo_perfume->image}}" alt="">
+                                <img class="w-25" src="{{ asset("storage/$singolo_perfume->image") }}" alt="">
                             </div>
                         </div>
                     </div>

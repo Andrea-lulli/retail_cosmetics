@@ -69,6 +69,7 @@
             </div>
             <div class="col-md-4  d-flex align-items-center justify-content-center">
                 <img class="w-50" src="{{$elem->image}}" alt="">
+                <img class="w-50" src="{{ asset("storage/$elem->image") }}" alt="">
             </div>
         </div>
     </div>

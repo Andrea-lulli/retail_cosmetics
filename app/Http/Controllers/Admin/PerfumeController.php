@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Perfume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PerfumeController extends Controller
 {
@@ -42,6 +43,13 @@ class PerfumeController extends Controller
         $data = $request->all();
 
         $newperfume = new Perfume();
+
+        if (array_key_exists('image', $data)) {
+            $image = Storage::put('images', $data['image']);
+            $data['image'] = $image;
+        }
+
+
         $newperfume->fill($data);
         $newperfume->save();
 
@@ -100,6 +108,11 @@ class PerfumeController extends Controller
     public function destroy($id)
     {
         $singolo_perfume = Perfume::findOrFail($id);
+
+        if ($singolo_perfume->image) {
+            Storage::delete($singolo_perfume->image);
+        };
+
 
 
 

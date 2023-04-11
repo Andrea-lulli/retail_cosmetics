@@ -45,12 +45,36 @@ class PerfumeController extends Controller
         $newperfume = new Perfume();
 
         if (array_key_exists('image', $data)) {
-            $image = Storage::put('images', $data['image']);
+            $image = Storage::put('public/images', $data['image']);
             $data['image'] = $image;
         }
 
+        $request->validate(
+            [
+                'name' => 'required',
+                'brand' => 'required',
+                'category' => 'required',
+                'price' => 'required|numeric|min:0.01',
+                'image' => 'required',
+
+            ],
+            [
+                'name.required' => 'Il campo nome è obbligatorio.',
+                'brand.required' => 'Il campo brand è obbligatorio.',
+                'category.required' => 'Il campo category è obbligatorio.',
+                'price.required' => 'Il prezzo è obbligatorio.',
+                'price.numeric' => 'Formato prezzo non valido.',
+                'price.min' => 'Il prezzo deve essere uguale o maggiore a 0.01',
+                'image.required' => 'Carica un immagine.',
+                'image.mimes' => 'Formato immagine non valido.',
+                'image.max' => 'Dimensioni massime consentite 4096kb.'
+            ]
+        );
+
         $newperfume->fill($data);
         $newperfume->save();
+
+
 
         return redirect()->route('admin.perfumes.index');
     }

@@ -14,7 +14,12 @@
         <label for="" class="col-md-4 col-form-label text-md-right">Name
             <span class="text-success">*</span></label>
         <div class="col-md-6">
-            <input type="text" class="form-control" name="name" placeholder="Inserisci il nome del prodotto">
+            <input type="text" class="form-control @error('name') is-invalid @enderror  " name="name" placeholder="Inserisci il nome del prodotto" >
+            @error('name')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
         </div>
     </div>
 
